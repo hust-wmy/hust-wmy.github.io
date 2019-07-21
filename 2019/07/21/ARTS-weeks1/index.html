@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://hustwmy.com">
-  <title>Archives: 2019/7 | Happy Coding</title>
+  <title>ARTS-weeks1 | Happy Coding</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Happy Coding">
-<meta property="og:url" content="http://hustwmy.com/archives/2019/07/index.html">
+  <meta name="description" content="Algorithm两数之和 Review分享最近看到的一篇文章《The Power of Ten – Rules for Developing Safety Critical Code》，这篇文章是NASA的工程师为了保证软件质量而制定的十条规则，我认为对于所有的软件开发都非常具有参考价值，大致内容如下：">
+<meta name="keywords" content="ARTS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ARTS-weeks1">
+<meta property="og:url" content="http://hustwmy.com/2019/07/21/ARTS-weeks1/index.html">
 <meta property="og:site_name" content="Happy Coding">
+<meta property="og:description" content="Algorithm两数之和 Review分享最近看到的一篇文章《The Power of Ten – Rules for Developing Safety Critical Code》，这篇文章是NASA的工程师为了保证软件质量而制定的十条规则，我认为对于所有的软件开发都非常具有参考价值，大致内容如下：">
 <meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-07-21T08:05:27.981Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Happy Coding">
+<meta name="twitter:title" content="ARTS-weeks1">
+<meta name="twitter:description" content="Algorithm两数之和 Review分享最近看到的一篇文章《The Power of Ten – Rules for Developing Safety Critical Code》，这篇文章是NASA的工程师为了保证软件质量而制定的十条规则，我认为对于所有的软件开发都非常具有参考价值，大致内容如下：">
   
     <link rel="alternative" href="/atom.xml" title="Happy Coding" type="application/atom+xml">
   
@@ -142,36 +147,54 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-ARTS-weeks1" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/21/ARTS-weeks1/" class="archive-article-date">
-  	<time datetime="2019-07-21T06:49:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/21/ARTS-weeks1/">ARTS-weeks1</a>
+    <h1 class="article-title" itemprop="name">
+      ARTS-weeks1
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/07/21/ARTS-weeks1/" class="archive-article-date">
+  	<time datetime="2019-07-21T06:49:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Algorithm"><a href="#Algorithm" class="headerlink" title="Algorithm"></a>Algorithm</h1><p><a href="https://hustwmy.com/2019/07/20/Algorithm：TwoSum之C语言实现/">两数之和</a></p>
+<h1 id="Review"><a href="#Review" class="headerlink" title="Review"></a>Review</h1><p>分享最近看到的一篇文章<a href="http://spinroot.com/gerard/pdf/P10.pdf" target="_blank" rel="noopener">《The Power of Ten – Rules for Developing Safety Critical Code》</a>，这篇文章是NASA的工程师为了保证软件质量而制定的十条规则，我认为对于所有的软件开发都非常具有参考价值，大致内容如下：</p>
+<a id="more"></a>
+
+<ol>
+<li>限制所有代码使用简单控制流，不要使用goto等；</li>
+<li>所有循环必须有固定的上限；</li>
+<li>初始化后不要使用动态分配；</li>
+<li>任何函数代码打印出来都不应该超过一张纸的长度；</li>
+<li>每个函数至少使用两个运行时断言；</li>
+<li>应在尽可能小的范围内申明数据对象；</li>
+<li>每个调用函数必须检查非void函数的返回值，并且必须在每个函数内检查参数有效性；</li>
+<li>谨慎使用预处理器，最好只限于头文件和简单的宏定义；</li>
+<li>限制指针的使用，最多允许不超过一级的指针解引用；</li>
+<li>从开发的第一天开始就要编译所有代码，并解决所有告警。</li>
+</ol>
+<h1 id="Tip"><a href="#Tip" class="headerlink" title="Tip"></a>Tip</h1><p>在本周的项目开发中，遇到了一个问题。背景是我在一个工作线程中发送一个同步IO去读取磁盘上的page，在回调函数中对page内容进行修改，然后发送一个写IO将该page持久化到磁盘上，结果出现了IO超时挂命令。经过各种尝试，发现只要将第二个IO放到第一个IO的回调函数完成之后，就不会出现问题。</p>
+<p>经过分析，发现IO虽然是在我自己的工作线程中下发，但是其回调函数上下文是在RAID的线程中。若在第一个IO的回调中继续下发IO，第二个IO同样由RAID的线程回调，而此时第一个IO还在该线程中等待，两个IO相互等待导致死锁。出现这个问题的根本原因还是对Linux线程调度理解不够深刻，后面要加强对基础知识的学习和积累。</p>
+<h1 id="Share"><a href="#Share" class="headerlink" title="Share"></a>Share</h1><p>今天和大家分享一本书籍<a href="http://pages.cs.wisc.edu/~remzi/OSTEP/" target="_blank" rel="noopener">《Operating Systems: Three Easy Pieces》</a>，这本书围绕三个主题展开讲解：虚拟化、并发和持久性，通过对这些概念的讨论最终延伸到讨论操作系统所做的大多数重要的事。</p>
+<p>这本书非常适合作为操作系统的入门学习，里面有大量可以实际编译运行的C代码，而且语言幽默，通俗易懂，可以作为阅读英文书籍的开端。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -183,57 +206,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://hustwmy.com/2019/07/21/ARTS-weeks1/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/07/20/Algorithm：TwoSum之C语言实现/" class="archive-article-date">
-  	<time datetime="2019-07-20T03:25:26.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-07-20</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/07/20/Algorithm：TwoSum之C语言实现/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Algorithm：TwoSum之C语言实现</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/07/20/Algorithm：TwoSum之C语言实现/">Algorithm：TwoSum之C语言实现</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -256,8 +328,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
